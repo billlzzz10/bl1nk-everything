@@ -1,0 +1,89 @@
+/* styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; 
+}
+
+#header {
+    background-color: #1a1a2e; /* Dark Blue from your brand feeling */
+    color: #e0e0e0;
+    padding: 20px 40px;
+    border-bottom: 4px solid #4cc9f0; /* Accent line */
+}
+
+#doc-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Sidebar (Navigation) --- */
+#sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    /* Sticky Navigation */
+    position: sticky; 
+    top: 0; 
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#sidebar h2 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar a {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #343a40;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+#sidebar a:hover {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* --- Main Content --- */
+#main-content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+#main-content section {
+    margin-bottom: 50px;
+    padding-top: 20px; /* Space for the fixed header */
+}
+
+#main-content h2 {
+    color: #1a1a2e;
+    border-left: 5px solid #4cc9f0; 
+    padding-left: 10px;
+}
+
+/* Code Block Styling */
+pre {
+    background-color: #f4f4f4;
+    padding: 15px;
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+code {
+    font-family: monospace;
+}
