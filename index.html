@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Memory Proxy Docs</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header id="header">
+        <h1>AI Memory Proxy Documentation</h1>
+    </header>
+
+    <div id="doc-container">
+        
+        <nav id="sidebar">
+            <h2>สารบัญเอกสาร</h2>
+            <ul>
+                <li><a href="#overview-value">ภาพรวม & คุณค่าหลัก</a></li>
+                <li><a href="#cost-saving">การลดต้นทุน (70-85%)</a></li>
+                
+                <li><a href="#getting-started">--- เริ่มต้นใช้งาน ---</a></li>
+                <li><a href="#install-selfhost">1. ติดตั้ง Self-Hosted (Docker)</a></li>
+                <li><a href="#sdk-integration">2. การรวมระบบด้วย SDKs</a></li>
+
+                <li><a href="#tech-reference">--- การอ้างอิงทางเทคนิค ---</a></li>
+                <li><a href="#arch-8layer">สถาปัตยกรรม 8 ชั้น</a></li>
+                <li><a href="#api-reference">API Reference (OpenAI Compatible)</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <section id="overview-value">
+                <h2>ภาพรวม & คุณค่าหลัก</h2>
+                <p>AI Memory Proxy เป็นแพลตฟอร์มโอเพนซอร์ส (MIT License) ที่ออกแบบมาเพื่อจัดการบริบท (Context Management) และเพิ่มประสิทธิภาพการใช้งาน LLM API ของคุณ...</p>
+                <p><strong>คุณค่าหลัก:</strong> ลดต้นทุน 70-85%, ลูกค้าเป็นเจ้าของ API Key, ไม่ผูกมัดผู้ให้บริการ</p>
+            </section>
+            
+            <section id="cost-saving">
+                <h2>การลดต้นทุน (70-85%)</h2>
+                <p>เราบรรลุการประหยัดนี้ผ่านกลยุทธ์แคชหลายชั้น:</p>
+                <ul>
+                    <li>**Exact Match Cache:** (Redis) สำหรับ Request ที่ซ้ำกันทุกประการ</li>
+                    <li>**Semantic Vector Cache:** (Qdrant/FAISS) สำหรับคำถามที่มีความหมายคล้ายกัน</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section id="getting-started">
+                <h2>เริ่มต้นใช้งาน</h2>
+                <p>การใช้งาน AI Memory Proxy นั้นง่ายมาก เพราะเราเข้ากันได้กับ OpenAI API เดิมของคุณ</p>
+            </section>
+            
+            <section id="install-selfhost">
+                <h3>1. ติดตั้ง Self-Hosted (Docker)</h3>
+                <p>นี่คือวิธีติดตั้ง Proxy Server บนเครื่องของคุณเอง (เหมาะสำหรับ Windows และ Linux)</p>
+                <pre><code># โค้ด Docker Compose สำหรับติดตั้งจะอยู่ที่นี่</code></pre>
+            </section>
+
+            <section id="sdk-integration">
+                <h3>2. การรวมระบบด้วย SDKs</h3>
+                <p>เพียงเปลี่ยน Base URL ใน SDK เดิมของคุณ:</p>
+                <pre><code>// TypeScript/JavaScript Example
+const ai = new OpenAI({
+    // เปลี่ยนจาก api.openai.com ไปยัง URL ของ Proxy Server
+    baseURL: "http://your-proxy-host:8000/v1", 
+    apiKey: process.env.OPENAI_API_KEY, // ใช้ Key เดิมของคุณ
+});</code></pre>
+            </section>
+
+            <hr>
+
+            <section id="tech-reference">
+                <h2>การอ้างอิงทางเทคนิค</h2>
+            </section>
+            
+            <section id="arch-8layer">
+                <h3>สถาปัตยกรรม 8 ชั้น</h3>
+                <p>รายละเอียดการทำงานของแต่ละชั้นในสถาปัตยกรรมหลักของ AI Memory Proxy:</p>
+                <ol>
+                    <li>**ชั้นที่ 1:** Request Interceptor</li>
+                    <li>**ชั้นที่ 2:** Exact Match Cache</li>
+                    </ol>
+            </section>
+
+            <section id="api-reference">
+                <h3>API Reference (OpenAI Compatible)</h3>
+                <p>เราเลียนแบบ Endpoint มาตรฐานของ OpenAI API เพื่อการเปลี่ยนผ่านที่ง่ายดาย</p>
+                <pre><code>Endpoint: POST /v1/chat/completions</code></pre>
+                </section>
+
+        </main>
+    </div>
+</body>
+</html>
