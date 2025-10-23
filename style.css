@@ -12,6 +12,9 @@ body {
     color: #e0e0e0;
     padding: 20px 40px;
     border-bottom: 4px solid #4cc9f0; /* Accent line */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 #doc-container {
@@ -67,6 +70,7 @@ body {
 #main-content section {
     margin-bottom: 50px;
     padding-top: 20px; /* Space for the fixed header */
+    scroll-margin-top: 80px;
 }
 
 #main-content h2 {
