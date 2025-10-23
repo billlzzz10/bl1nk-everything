@@ -1,0 +1,6 @@
+# Dependencies
+node_modules/
+
+# Test Results
+test-results/
+tests/screenshot.png

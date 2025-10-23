@@ -55,7 +55,15 @@
             <section id="install-selfhost">
                 <h3>1. ติดตั้ง Self-Hosted (Docker)</h3>
                 <p>นี่คือวิธีติดตั้ง Proxy Server บนเครื่องของคุณเอง (เหมาะสำหรับ Windows และ Linux)</p>
-                <pre><code># โค้ด Docker Compose สำหรับติดตั้งจะอยู่ที่นี่</code></pre>
+                <pre><code># docker-compose.yml
+version: '3.8'
+
+services:
+  docs:
+    build: .
+    ports:
+      - "8080:80"
+</code></pre>
             </section>
 
             <section id="sdk-integration">
