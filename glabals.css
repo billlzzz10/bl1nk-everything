@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+body {
+  line-height: 1.6;
+  min-height: 100vh;
+  /* Replicating the background gradient from the original code */
+  background: linear-gradient(135deg, theme('colors.bg-darker') 0%, #1a1f3a 50%, theme('colors.bg-dark') 100%);
+  color: theme('colors.text-light');
+}
+
+/* Custom Component Class (for the gradient button) */
+.btn-primary-gradient {
+  @apply bg-gradient-to-br from-primary to-secondary text-white shadow-primary-glow;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  @apply shadow-primary-hover transform -translate-y-0.5;
+}
+
+/* Neon Border Class for Cards (for use in Dashboard/Marketplace) */
+.neon-border-card {
+  box-shadow: 0 0 10px rgba(76, 201, 240, 0.5), 0 0 20px rgba(123, 104, 238, 0.3);
+  border: 1px solid theme('colors.primary');
+  background: theme('colors.light-glass-bg');
+}
+
+/* Custom Neon Toggle Switch (for Settings page) */
+.neon-toggle {
+    @apply relative inline-block w-12 h-6 rounded-full cursor-pointer transition-colors duration-200;
+}
+.neon-toggle input:checked + .neon-slider {
+    @apply bg-gradient-to-r from-primary to-secondary shadow-neon-glow/70;
+}
+.neon-toggle input:checked + .neon-slider::before {
+    @apply translate-x-6;
+}
+.neon-slider {
+    @apply absolute top-0 left-0 right-0 bottom-0 bg-bg-darker rounded-full shadow-inner;
+    transition: all 0.2s ease-in-out;
+}
+.neon-slider::before {
+    content: "";
+    @apply absolute h-5 w-5 left-0.5 bottom-0.5 bg-text-light rounded-full shadow-md transition-transform duration-200;
+}
+
+
+/* --- Particle Animation CSS --- */
+.bg-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: theme('colors.primary');
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(100px, -100px); }
+  50% { transform: translate(-100px, -200px); }
+  75% { transform: translate(-200px, -100px); }
+}
