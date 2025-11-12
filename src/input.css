@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 bg-doc-bg;
+  }
+}
+
+@layer components {
+  /* Header Styles */
+  #header {
+    @apply bg-doc-header text-gray-200 px-10 py-5 border-b-4 border-primary sticky top-0 z-[1000];
+  }
+
+  #header h1 {
+    @apply m-0 text-2xl;
+  }
+
+  /* Container */
+  #doc-container {
+    @apply flex max-w-[1400px] mx-auto;
+  }
+
+  /* Sidebar Navigation */
+  #sidebar {
+    @apply w-[250px] flex-shrink-0 p-5 border-r border-doc-border sticky top-0 h-screen overflow-y-auto;
+  }
+
+  #sidebar h2 {
+    @apply mt-0 text-primary text-xl;
+  }
+
+  #sidebar ul {
+    @apply list-none p-0;
+  }
+
+  #sidebar li {
+    @apply mb-1;
+  }
+
+  #sidebar a {
+    @apply block py-2 no-underline text-doc-text text-[0.95em] transition-colors duration-200;
+  }
+
+  #sidebar a:hover {
+    @apply text-primary font-bold;
+  }
+
+  /* Main Content */
+  #main-content {
+    @apply flex-grow p-10;
+  }
+
+  #main-content section {
+    @apply mb-12 pt-5 scroll-mt-20;
+  }
+
+  #main-content h2 {
+    @apply text-doc-header border-l-[5px] border-primary pl-2.5 text-2xl mb-4;
+  }
+
+  #main-content h3 {
+    @apply text-doc-header text-xl mb-3 mt-6;
+  }
+
+  #main-content p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  #main-content ul,
+  #main-content ol {
+    @apply mb-4 pl-6;
+  }
+
+  #main-content li {
+    @apply mb-2;
+  }
+
+  #main-content hr {
+    @apply my-8 border-t border-doc-border;
+  }
+
+  /* Code Block Styling */
+  #main-content pre {
+    @apply bg-doc-code-bg p-4 overflow-x-auto rounded border border-doc-border mb-4;
+  }
+
+  #main-content code {
+    @apply font-mono text-sm;
+  }
+}

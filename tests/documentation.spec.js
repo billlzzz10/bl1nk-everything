@@ -9,13 +9,13 @@ test.describe('Documentation Page', () => {
   });
 
   test('should navigate to the API reference section without the header obstructing the view', async ({ page }) => {
-    await page.goto('http://localhost:8080');
+    await page.goto('http://localhost:8081');
 
     // Click the last link in the sidebar
     await page.click('a[href="#api-reference"]');
 
     // Wait for the navigation to complete
-    await page.waitForURL('http://localhost:8080/#api-reference');
+    await page.waitForURL('http://localhost:8081/#api-reference');
 
     // Check that the Thai text is rendered correctly
     const sidebarTitle = await page.locator('#sidebar h2');
